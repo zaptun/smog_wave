@@ -1,0 +1,50 @@
+# Site Info
+version: 1.0.0
+sitename: Rex's Blog
+# title: Rex
+email: ipost3@gmail.com
+description: Just a front-end developer's blog
+# baseurl: "https://zaptun.github.io/smog_wave"
+# url: "https://zaptun.github.io/smog_wave"
+baseurl: "http://kd.com/smog_wave/dist"
+url: "http://kd.com/smog_wave/dist"
+logo: '/public/logo.png'
+# twitter_username: jekyllrb
+# github_username:  jekyll
+
+# Site configurations
+LSI: true
+# excerpt_separator: "\n\n"
+excerpt_separator: ""
+highlighter: rouge
+# highlighter: pygments
+markdown: kramdown
+markdown_ext: markdown,mkd,mkdn,md
+# permalink: none
+permalink: /:categories/:title.html
+# gems:
+#   - jekyll-paginate
+# paginate: 1
+# paginate_path: '/blog/page:num'
+
+# Navigation (2nd level links supported)
+nav:
+  #Home:           
+  #  - '/'
+  Blog:           
+    - '/'
+    - { Categories: '/categories/' }
+    - { Tags: '/tags/' }
+  About:          
+    - '/about/'
+  Journey:          
+    - '/categories/?categories=journey'
+
+# Where are tags and categories displayed
+tag_page: '/tags/'
+category_page: '/categories/'
+  
+# Build settings
+source: ./src
+destination: ./dist
+encoding: utf-8

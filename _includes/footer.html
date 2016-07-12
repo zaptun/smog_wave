@@ -1,0 +1,21 @@
+<footer class="site_footer">
+    <div class="wrapper">
+        <!-- <h2 class="footer-heading">{{ site.sitename }}</h2> -->
+        <div class="footer-col-wrapper">
+            <div class="footer-col footer-col-1">
+                <ul class="contact-list">
+                    <li>{{ site.sitename }}</li>
+                    <li><a href="mailto:{{ site.email }}">{{ site.email }}</a></li>
+                </ul>
+            </div>
+            <div class="footer-col footer-col-3">
+                <p>{{ site.description }}</p>
+            </div>
+        </div>
+    </div>
+</footer>
+<script type="text/javascript" src="{{ "/assets/js/data.js" | prepend: site.baseurl }}"></script>
+<!-- <script type="text/javascript" src="{{ "/assets/js/zap.js" | prepend: site.baseurl }}"></script>
+<script type="text/javascript" src="{{ "/assets/js/base.js" | prepend: site.baseurl }}"></script> -->
+<script type="text/javascript" src="{{ "/assets/js/base.min.js" | prepend: site.baseurl }}"></script>
+

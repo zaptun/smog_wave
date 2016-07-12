@@ -1,0 +1,25 @@
+--- 
+layout: default
+---
+<div class="cnt">
+    <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+        <header class="post_header">
+            <p class="post_meta">
+                <time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">{{ page.date | date: "%b %-d, %Y" }}</time>{% if page.author %} • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">{{ page.author }}</span></span>{% endif %}</p>
+            <span class="category">
+            	{% for tag in page.categories %}
+				    <a href="/categories/?categories={{tag}}" class="tags">{{ tag }}</a>
+				{% endfor %}	
+            </span>
+            <h1 class="post_title" itemprop="name headline">{{ page.title }}</h1>
+        </header>
+        <div class="post_content" itemprop="articleBody">
+            {{ content }}
+        </div>
+        <div class="post_tag">
+        	{% for tag in page.tags %}
+			    <a href="/tags/?tags={{tag}}" class="tags">#{{ tag }}</a>
+			{% endfor %}
+        </div>
+    </article>
+</div>
