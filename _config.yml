@@ -4,10 +4,10 @@ sitename: Rex's Blog
 # title: Rex
 email: ipost3@gmail.com
 description: Just a front-end developer's blog
-# baseurl: "https://zaptun.github.io/smog_wave"
-# url: "https://zaptun.github.io/smog_wave"
-baseurl: "http://kd.com/smog_wave/dist"
-url: "http://kd.com/smog_wave/dist"
+baseurl: "https://zaptun.github.io/smog_wave"
+url: "https://zaptun.github.io/smog_wave"
+# baseurl: "http://kd.com/smog_wave/dist"
+# url: "http://kd.com/smog_wave/dist"
 logo: '/public/logo.png'
 # twitter_username: jekyllrb
 # github_username:  jekyll
