@@ -11,12 +11,12 @@ window.DATA = {
 				"layout" : "{{ post.layout }}",
 				"time" : {{ post.date | date: "%s" }},
 				{% if post.img %}
-				"img" : "{{ site.url }}{{ post.img }}",
+				"img" : "{{ site.baseurl }}{{ post.img }}",
 				{% endif %}
 				"excerpt" : "{{ post.excerpt }}",
 				"categories" : [{% for category in post.categories %}{% if forloop.rindex != 1 %}"{{ category }}",{% else %}"{{ category }}"{% endif %}{% endfor %}],
 				"tags" : [{% for _tag in post.tags %}{% if forloop.rindex != 1 %}"{{ _tag }}",{% else %}"{{ _tag }}"{% endif %}{% endfor %}],
-				"url" : "{{ site.url }}{{ post.url }}"
+				"url" : "{{ site.baseurl }}{{ post.url }}"
 			}
 			{% if forloop.rindex != 1  %}
 			,
@@ -34,12 +34,12 @@ window.DATA = {
 							"layout" : "{{ post.layout }}",
 							"time" : {{ post.date | date: "%s" }},
 							{% if post.img %}
-							"img" : "{{ site.url }}{{ post.img }}",
+							"img" : "{{ site.baseurl }}{{ post.img }}",
 							{% endif %}
 							"excerpt" : "{{ post.excerpt }}",
 							"categories" : [{% for category in post.categories %}{% if forloop.rindex != 1 %}"{{ category }}",{% else %}"{{ category }}"{% endif %}{% endfor %}],
 							"tags" : [{% for _tag in post.tags %}{% if forloop.rindex != 1 %}"{{ _tag }}",{% else %}"{{ _tag }}"{% endif %}{% endfor %}],
-							"url" : "{{ site.url }}{{ post.url }}"
+							"url" : "{{ site.baseurl }}{{ post.url }}"
 						}
 						{% if forloop.rindex != 1  %}
 						,
@@ -63,12 +63,12 @@ window.DATA = {
 							"layout" : "{{ post.layout }}",
 							"time" : {{ post.date | date: "%s" }},
 							{% if post.img %}
-							"img" : "{{ site.url }}{{ post.img }}",
+							"img" : "{{ site.baseurl }}{{ post.img }}",
 							{% endif %}
 							"excerpt" : "{{ post.excerpt }}",
 							"categories" : [{% for category in post.categories %}{% if forloop.rindex != 1 %}"{{ category }}",{% else %}"{{ category }}"{% endif %}{% endfor %}],
 							"tags" : [{% for _tag in post.tags %}{% if forloop.rindex != 1 %}"{{ _tag }}",{% else %}"{{ _tag }}"{% endif %}{% endfor %}],
-							"url" : "{{ site.url }}{{ post.url }}"
+							"url" : "{{ site.baseurl }}{{ post.url }}"
 						}
 						{% if forloop.rindex != 1  %}
 						,
