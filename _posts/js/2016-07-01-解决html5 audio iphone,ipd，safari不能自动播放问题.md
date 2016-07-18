@@ -3,8 +3,8 @@ layout: post
 filename: 2016-07-01-解决html5 audio iphone,ipd，safari不能自动播放问题4
 title: 解决html5 audio iphone,ipd，safari不能自动播放问题4
 date: 2016-07-02 11:10:28 +0800
-categories: js
-tags: js audio iphone
+categories: Js
+tags: Js audio iphone
 ---
 ## 解决html5 audio iphone,ipd，safari不能自动播放问题
 
