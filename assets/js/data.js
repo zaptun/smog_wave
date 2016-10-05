@@ -3,6 +3,8 @@ layout: null
 ---
 // {{ post.date | date: "%b %-d, %Y" }}
 
+window.SiteBaseurl = "{{ site.baseurl }}";
+
 window.DATA = {
 	"post" : [
 		{% for post in site.posts %}

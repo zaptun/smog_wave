@@ -3,7 +3,7 @@ layout: post
 filename: 2016-08-01-SESSION与COOKIE的区别
 title: SESSION与COOKIE的区别
 date: 2016-08-01 10:54:44 +0800
-categories: SESSION与COOKIE的区别
+categories: Js
 tags: SESSION与COOKIE的区别
 ---
 
