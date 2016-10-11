@@ -4,7 +4,7 @@ sitename: Rex's Blog
 # title: Rex
 email: ipost3@gmail.com
 description: Just a front-end developer's blog
-baseurl: "smog_wave"
+# baseurl: "smog_wave"
 # baseurl: "https://zaptun.github.io/smog_wave"
 # url: "https://zaptun.github.io/smog_wave"
 logo: '/public/logo.png'
