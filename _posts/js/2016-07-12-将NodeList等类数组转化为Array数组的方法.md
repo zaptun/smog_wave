@@ -7,7 +7,7 @@ categories: Js
 tags: Js 类数组转数组
 ---
 
-### 1.什么是类数组ArrayLike?
+### 1.什么是类数组Array-like?
 
 我们举一个比较经典的类数组（最经典的类数组是Arguments，这里暂且不说）。
 
@@ -56,5 +56,24 @@ function changeToArray(obj){
     }
     return result
 }
+
+var realArray = (obj.length === 1 ? [obj[0]] : Array.apply(null, obj));
+```
+
+#### 总结下都有哪几种方式
+
+```javascript
+//obj is a Array-like 
+
+//ES5
+var realArray = Array.prototype.slice.call(obj);
+var realArray = Array.apply(null, obj);
+var realArray = [].slice.call(obj);
+
+//ES6
+// Array.from()
+var realArray = Array.from(obj);
+// 散布操作符（spread operator ）
+var realArray = [...obj];
 ```
 

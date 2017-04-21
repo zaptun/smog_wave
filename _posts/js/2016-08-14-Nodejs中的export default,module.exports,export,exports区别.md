@@ -3,8 +3,8 @@ layout: post
 filename: 2016-08-14-Nodejs中的export default,module.exports,export,exports区别
 title: Nodejs中的export default,module.exports,export,exports区别
 date: 2016-08-14 16:34:13 +0800
-categories: nodejs
-tags: nodejs
+categories: NodeJs
+tags: NodeJs
 ---
 
 nodejs中有export default,module.exports,export,exports这几种写法，我们看看都有什么区别.

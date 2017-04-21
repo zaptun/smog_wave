@@ -1,37 +1,37 @@
 <header class="site_header">
     <div class="wrapper">
         <a class="site_title" href="{{ site.baseurl }}/">{{ site.sitename }}</a>
-        <nav class="site_nav">
-            <a href="#" class="menu_icon" style="display:none">
-                <svg viewBox="0 0 18 15">
-                    <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z" />
-                    <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z" />
-                    <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z" />
-                </svg>
-            </a>
-            <div class="trigger">
-                <nav class="sidebar-nav">
-                    {% for nav in site.nav %} {% assign is_relative = nav[1][0] | slice: 0 %} {% assign url = nav[1][0] %} {% if is_relative == '/' %} {% assign url = nav[1][0] | prepend: site.baseurl %} {% endif %} {% assign sub_len = nav[1] | size | minus: 1 %}
-                    <span class="{% if sub_len > 0 %}foldable{% endif %}">
-        <a class="sidebar-nav-item {% if page.url == nav[1][0] %}active{% endif %}" href="{{ url }}">
-          {{ nav[0] }}
+        <div id="menu-icon-wrapper" class="menu-icon-wrapper" >
+            <svg width="1000px" height="1000px">
+              <path id="pathA" d="M 300 400 L 700 400 C 900 400 900 750 600 850 A 400 400 0 0 1 200 200 L 800 800"></path>
+              <path id="pathB" d="M 300 500 L 700 500"></path>
+              <path id="pathC" d="M 700 600 L 300 600 C 100 600 100 200 400 150 A 400 380 0 1 1 200 800 L 800 200"></path>
+            </svg>
+          <button id="menu-icon-trigger" class="menu-icon-trigger"></button>
+        </div>
+        <a href="#" class="menu_icon" style="display:none">
+            <svg viewBox="0 0 18 15">
+                <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z" />
+                <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z" />
+                <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z" />
+            </svg>
         </a>
-
-        {% for i in (1..sub_len) %}
-          {% for sub_nav in nav[1][i] %}
-            {% assign sub_is_relative = sub_nav[1] | slice: 0 %}
-            {% assign sub_url = sub_nav[1] %}
-            {% if sub_is_relative == '/' %}
-              {% assign sub_url = sub_nav[1] | prepend: site.baseurl %}
-            {% endif %}
-              <a class="sidebar-nav-item sidebar-nav-item-sub {% if page.url == sub_nav[1] %}active{% endif %}" href="{{ sub_url }}">
-                {{ sub_nav[0] }}
-              </a>
+        <nav class="site_nav" id="dummy">
+          {% for nav in site.nav %} {% assign is_relative = nav[1][0] | slice: 0 %} {% assign url = nav[1][0] %} {% if is_relative == '/' %} {% assign url = nav[1][0] | prepend: site.baseurl %} {% endif %} {% assign sub_len = nav[1] | size | minus: 1 %}
+            <span class="dummy__item {% if sub_len > 0 %}foldable{% endif %}">
+              <a class="sidebar-nav-item {% if page.url == nav[1][0] %}active{% endif %}" href="{{ url }}">{{ nav[0] }}</a>
+              {% for i in (1..sub_len) %}
+                {% for sub_nav in nav[1][i] %}
+                  {% assign sub_is_relative = sub_nav[1] | slice: 0 %}
+                  {% assign sub_url = sub_nav[1] %}
+                  {% if sub_is_relative == '/' %}
+                    {% assign sub_url = sub_nav[1] | prepend: site.baseurl %}
+                  {% endif %}
+                    <a class="sidebar-nav-item sidebar-nav-item-sub {% if page.url == sub_nav[1] %}active{% endif %}" href="{{ sub_url }}">{{ sub_nav[0] }}</a>
+                  {% endfor %}
+              {% endfor %}
+            </span>
           {% endfor %}
-        {% endfor %}
-      </span> {% endfor %}
-                </nav>
-            </div>
         </nav>
     </div>
 </header>

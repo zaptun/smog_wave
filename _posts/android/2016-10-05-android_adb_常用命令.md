@@ -4,7 +4,7 @@ filename: 2016-10-05-android_adb_常用命令
 title: android_adb_常用命令
 date: 2016-10-05 10:03:51 +0800
 categories: Android
-tags: android adb
+tags: Android adb
 ---
 
 ### 获取序列号
