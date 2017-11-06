@@ -85,3 +85,9 @@ Host *.github.com
 #### 4. 上传key到云平台后台(省略)
 
 #### 5. 测试ssh key是否配置成功
+
+```
+ssh -T git@github.com
+```
+
+[更多问题可以参考](https://help.github.com/articles/about-ssh/)
