@@ -58,7 +58,7 @@ tags: Phaser
 
 Phaser的使用非常简单，只需要引入它的主文件，然后在页面中指定一个用来放置canvas的元素，然后实例化一个 Game 对象就可以了。
 
-```
+```html
 <!DOCTYPE html>
 <html>
 <head>
@@ -76,7 +76,8 @@ var game = new Phaser.Game(288,505,Phaser.AUTO,'game'); //实例化一个Phaser�
 ```
 
 看看Phaser.Game这个函数都有哪些参数
-```
+
+```javascript
 Phaser.Game(width, height, renderer, parent, state, transparent, antialias, physicsConfig)
 ```
 
@@ -95,7 +96,7 @@ Phaser.Game(width, height, renderer, parent, state, transparent, antialias, phys
 
 ### 2.State
 
-```
+```javascript
 //state可以是一个自定义对象
 var state1 = {
     preload : function(){ },
@@ -127,7 +128,7 @@ var state4 = function(){
 
 在这个游戏中，我们会用到4个state（boot, prelaod, menu, play），我们可以通过`game.state.add()`方法来给游戏添加state，然后用`game.state.start()`方法来调用state,详细信息请看[state的文档](http://phaser.io/docs/2.6.2/Phaser.State.html)
 
-```
+```javascript
 var game = new Phaser.Game(288,505,Phaser.AUTO,'game'); 
 
 game.States = {}; //创建一个对象来存放要用到的state
@@ -155,7 +156,7 @@ game.state.start('boot');
 
 >因为资源加载进度条需要一个进度条的背景图片，所以在制作这个state前，我们还需要另一个最基础的state,用来加载那张进度条图片，我们命名为boot。
 
-```
+```javascript
 
 game.States.boot = function(){
     this.preload = function(){
@@ -176,7 +177,7 @@ game.States.boot = function(){
 
 [game.time文档地址](https://photonstorm.github.io/phaser-ce/Phaser.Time.html#Time)
 
-```
+```javascript
 game.time.advancedTiming = true; //配置高级分析
 game.time.desiredFps = 60; //期望帧率
 game.time.slowMotion = 1.0; //正常速度模式
@@ -187,7 +188,7 @@ API：`game.debug.text(text, x, y, color, font)`
 [官方参考文档](https://photonstorm.github.io/phaser-ce/Phaser.Utils.Debug.html#text)
 
 
-```
+```javascript
 game.debug.text('render FPS: ' + (game.time.fps || '--') , 2, 14, "#00ff00", '36px arial');
 
 if (game.time.suggestedFps !== null){
@@ -200,7 +201,7 @@ if (game.time.suggestedFps !== null){
 
 Phaser自带屏幕适配的模式，[ScaleManager文档](https://photonstorm.github.io/phaser-ce/Phaser.ScaleManager.html)
 
-```
+```javascript
 if(!game.device.desktop){
     // this.scale.scaleMode = Phaser.ScaleManager.EXACT_FIT;
     this.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
@@ -216,7 +217,7 @@ if(!game.device.desktop){
 我这里用的是USER_SCALE(会裁去头尾的适配方案)，还可以用SHOW_ALL(可能两边留黑边)，或者EXACT_FIT(会有拉伸变形)；
 这个方案类似cover，所以又加了一个css，把canvas 垂直居中；
 
-```
+```javascript
 //boot场景，用来做一些游戏启动前的准备
 var GameWrapClass = 'game_wrap';
 var deviceWidth = document.documentElement.clientWidth || 375; //实际设备宽度
@@ -266,7 +267,7 @@ Phaser中资源的加载都是通过 Phaser.Loader 这个对象的方法来完�
 
 在preload这个场景中，我们需要把游戏后面会用到的所有资源都进行加载，然后还要展示一个加载进度条给用户看。Loader对象提供了一个 `setPreloadSprite` 方法，只要把一个sprite对象指定给这个方法，那么这个sprite对象的宽度或高度就会根据当前加载的百分比自动调整，达到一个动态的进度条的效果。
 
-```
+```javascript
 //prelaod场景，用来显示资源加载进度
 game.States.preload = function () {
     var _progress = 0;
@@ -355,7 +356,7 @@ game.States.preload = function () {
 
 背景滚动，主要就是利用*[tileSprite文档](https://photonstorm.github.io/phaser-ce/Phaser.TileSprite.html)*的autoScroll方法。
 
-```
+```javascript
 /* 方法一 直接用单张图片 */
 //当作背景的tileSprite 
 var bg = game.add.tileSprite(0, 0, game.width, game.height, 'background');
@@ -386,7 +387,7 @@ ground.autoScroll(-300, 0); //让地面动起来
 
 [Loader spritesheet](https://photonstorm.github.io/phaser-ce/Phaser.Loader.html#spritesheet)<br/>
 
-```
+```javascript
 var titleGroup = game.add.group(); //创建存放标题的组
 titleGroup.create(0, 0, 'baseAll', 'title'); //通过组的create方法创建标题图片并添加到组里
 
@@ -437,7 +438,7 @@ to('动画的属性，如{y:120}', '持续的时间', '缓动函数', '是否自
 
 最后是添加一个开始游戏的按钮。Phaser提供了Button对象让我们能很简单的实现一个按钮
 
-```
+```javascript
 //添加一个按钮
 var btn = game.add.button(game.width/2,game.height/2, 'baseAll', function(){
     game.state.start('play'); //点击按钮时跳转到play场景
@@ -450,7 +451,7 @@ Phaser中很多对象都有一个anchor属性，它表示这个物体的中心�
 
 最后我们把所有代码合起来，得到了menu这个state的最终代码
 
-```
+```javascript
 //menu场景，游戏菜单
 game.States.menu = function () {
     this.create = function () {
