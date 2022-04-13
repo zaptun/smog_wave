@@ -1,0 +1,449 @@
+---
+---
+code.highlighter-rouge {
+    background-color: #2196F3;
+    border-radius: 5px;
+    color: #f8f8f2;
+    display: inline-block;
+    margin:0 5px 5px 5px;
+    padding: 2px 10px 0 10px;
+}
+
+.highlight .highlight {
+    padding-top: 1em;
+    padding-bottom: 1em;
+}
+
+.highlight .highlight {
+    background: #222;
+    padding: .6em .6em;
+    margin-bottom: 1em;
+    font: normal normal normal 105%/normal Monaco, 'Courier New', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', monospace!important;
+    line-height: 1.1em;
+    overflow: auto;
+    border: 1px solid #CCC;
+    -moz-border-radius: 7px;
+    -webkit-border-radius: 7px;
+    border-radius: 7px;
+}
+
+code,
+pre {
+    font-family: Consolas, "Courier New", Courier, FreeMono, monospace;
+    margin: 1em 0 1.5em;
+    font-weight: 300;
+    background-color: #222;
+    color: #fff;
+}
+
+.highlight span {
+    font-family: Consolas, "Courier New", Courier, FreeMono, monospace;
+}
+
+.highlight .highlight .hll {
+    background-color: #49483e;
+}
+
+.highlight .highlight {
+    color: #f8f8f2;
+}
+
+.highlight .highlight .c {
+    /* color: #75715e */
+    color: #888;
+}
+
+.highlight .highlight .err {
+    color: pink;
+    background-color: #1e0010;
+}
+
+.highlight .highlight .k {
+    color: #66d9ef;
+}
+
+.highlight .highlight .l {
+    color: #ae81ff;
+}
+
+.highlight .highlight .n {
+    color: #f8f8f2;
+}
+
+.highlight .highlight .o {
+    color: #f92672;
+}
+
+.highlight .highlight .p {
+    color: #f8f8f2;
+}
+
+.highlight .highlight .c1,
+.highlight .highlight .cm,
+.highlight .highlight .cp,
+.highlight .highlight .cs {
+    /* color: #75715e */
+    color: #888;
+}
+
+.highlight .highlight .ge {
+    font-style: italic;
+}
+
+.highlight .highlight .gs {
+    font-weight: 700;
+}
+
+.highlight .highlight .kc,
+.highlight .highlight .kd {
+    color: #66d9ef;
+}
+
+.highlight .highlight .kn {
+    color: #f92672;
+}
+
+.highlight .highlight .kp,
+.highlight .highlight .kr,
+.highlight .highlight .kt {
+    color: #66d9ef;
+}
+
+.highlight .highlight .ld {
+    color: #e6db74;
+}
+
+.highlight .highlight .m {
+    color: #ae81ff;
+}
+
+.highlight .highlight .s {
+    color: #e6db74;
+}
+
+.highlight .highlight .na {
+    color: #a6e22e;
+}
+
+.highlight .highlight .nb {
+    color: #f8f8f2;
+}
+
+.highlight .highlight .nc {
+    color: #a6e22e;
+}
+
+.highlight .highlight .no {
+    color: #66d9ef;
+}
+
+.highlight .highlight .nd {
+    color: #a6e22e;
+}
+
+.highlight .highlight .ni {
+    color: #f8f8f2;
+}
+
+.highlight .highlight .ne,
+.highlight .highlight .nf {
+    color: #a6e22e;
+}
+
+.highlight .highlight .nl,
+.highlight .highlight .nn {
+    color: #f8f8f2;
+}
+
+.highlight .highlight .nx {
+    color: #a6e22e;
+}
+
+.highlight .highlight .py {
+    color: #f8f8f2;
+}
+
+.highlight .highlight .nt {
+    color: #f92672;
+}
+
+.highlight .highlight .nv {
+    color: #f8f8f2;
+}
+
+.highlight .highlight .ow {
+    color: #f92672;
+}
+
+.highlight .highlight .w {
+    color: #f8f8f2;
+}
+
+.highlight .highlight .mf,
+.highlight .highlight .mh,
+.highlight .highlight .mi,
+.highlight .highlight .mo {
+    color: #ae81ff;
+}
+
+.highlight .highlight .s2,
+.highlight .highlight .sb,
+.highlight .highlight .sc,
+.highlight .highlight .sd {
+    color: #e6db74;
+}
+
+.highlight .highlight .se {
+    color: #ae81ff;
+}
+
+.highlight .highlight .s1,
+.highlight .highlight .sh,
+.highlight .highlight .si,
+.highlight .highlight .sr,
+.highlight .highlight .ss,
+.highlight .highlight .sx {
+    color: #e6db74;
+}
+
+.highlight .highlight .bp,
+.highlight .highlight .vc,
+.highlight .highlight .vg,
+.highlight .highlight .vi {
+    color: #f8f8f2;
+}
+
+.highlight .highlight .il {
+    color: #ae81ff;
+}
+
+@font-face {
+    font-family: GeneralEnclosedFoundicons;
+    font-style: normal;
+    font-weight: 400;
+    src: url(../fonts/general_enclosed_foundicons.eot);
+    src: url(../fonts/general_enclosed_foundicons.eot?#iefix) format("embedded-opentype"), url(../fonts/general_enclosed_foundicons.woff) format("woff"), url(../fonts/general_enclosed_foundicons.ttf) format("truetype"), url(../fonts/general_enclosed_foundicons.svg#GeneralEnclosedFoundicons) format("svg");
+}
+
+[class*=foundicon-] {
+    background-image: none;
+    background-position: 0 0;
+    background-repeat: repeat;
+    display: inline;
+    line-height: inherit;
+    vertical-align: baseline;
+}
+
+[class*=foundicon-]:before {
+    font-family: GeneralEnclosedFoundicons;
+    font-style: normal;
+    font-weight: 400;
+    text-decoration: inherit;
+}
+
+.foundicon-settings:before {
+    content: "\f000";
+}
+
+.foundicon-heart:before {
+    content: "\f001";
+}
+
+.foundicon-star:before {
+    content: "\f002";
+}
+
+.foundicon-plus:before {
+    content: "\f003";
+}
+
+.foundicon-minus:before {
+    content: "\f004";
+}
+
+.foundicon-checkmark:before {
+    content: "\f005";
+}
+
+.foundicon-remove:before {
+    content: "\f006";
+}
+
+.foundicon-mail:before {
+    content: "\f007";
+}
+
+.foundicon-calendar:before {
+    content: "\f008";
+}
+
+.foundicon-page:before {
+    content: "\f009";
+}
+
+.foundicon-tools:before {
+    content: "\f00a";
+}
+
+.foundicon-globe:before {
+    content: "\f00b";
+}
+
+.foundicon-home:before {
+    content: "\f00c";
+}
+
+.foundicon-quote:before {
+    content: "\f00d";
+}
+
+.foundicon-people:before {
+    content: "\f00e";
+}
+
+.foundicon-monitor:before {
+    content: "\f00f";
+}
+
+.foundicon-laptop:before {
+    content: "\f010";
+}
+
+.foundicon-phone:before {
+    content: "\f011";
+}
+
+.foundicon-cloud:before {
+    content: "\f012";
+}
+
+.foundicon-error:before {
+    content: "\f013";
+}
+
+.foundicon-right-arrow:before {
+    content: "\f014";
+}
+
+.foundicon-left-arrow:before {
+    content: "\f015";
+}
+
+.foundicon-up-arrow:before {
+    content: "\f016";
+}
+
+.foundicon-down-arrow:before {
+    content: "\f017";
+}
+
+.foundicon-trash:before {
+    content: "\f018";
+}
+
+.foundicon-add-doc:before {
+    content: "\f019";
+}
+
+.foundicon-edit:before {
+    content: "\f01a";
+}
+
+.foundicon-lock:before {
+    content: "\f01b";
+}
+
+.foundicon-unlock:before {
+    content: "\f01c";
+}
+
+.foundicon-refresh:before {
+    content: "\f01d";
+}
+
+.foundicon-paper-clip:before {
+    content: "\f01e";
+}
+
+.foundicon-video:before {
+    content: "\f01f";
+}
+
+.foundicon-photo:before {
+    content: "\f020";
+}
+
+.foundicon-graph:before {
+    content: "\f021";
+}
+
+.foundicon-idea:before {
+    content: "\f022";
+}
+
+.foundicon-mic:before {
+    content: "\f023";
+}
+
+.foundicon-cart:before {
+    content: "\f024";
+}
+
+.foundicon-address-book:before {
+    content: "\f025";
+}
+
+.foundicon-compass:before {
+    content: "\f026";
+}
+
+.foundicon-flag:before {
+    content: "\f027";
+}
+
+.foundicon-location:before {
+    content: "\f028";
+}
+
+.foundicon-clock:before {
+    content: "\f029";
+}
+
+.foundicon-folder:before {
+    content: "\f02a";
+}
+
+.foundicon-inbox:before {
+    content: "\f02b";
+}
+
+.foundicon-website:before {
+    content: "\f02c";
+}
+
+.foundicon-smiley:before {
+    content: "\f02d";
+}
+
+.foundicon-search:before {
+    content: "\f02e";
+}
+
+article aside.annoucement {
+    background-color: #f5f2f0;
+    padding: 1em 1em 0;
+    margin: 2em;
+    font-family: Consolas, Monaco, 'Andale Mono', monospace;
+    -moz-border-radius: 20px;
+    -webkit-border-radius: 20px;
+    border-radius: 20px;
+    border-width: 1em;
+    border-color: #e0dfcc;
+    border-style: solid;
+    text-shadow: 0 1px #fff;
+}
+
+article aside.annoucement p {
+    font-size: 1.4em;
+    font-style: normal;
+}

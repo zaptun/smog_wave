@@ -4,7 +4,7 @@ sitename: Rex's Blog
 # title: Rex
 email: ipost3@gmail.com
 description: Just a front-end developer's blog
-# baseurl: "smog_wave"
+baseurl: "/smog_wave"
 # baseurl: "https://zaptun.github.io/smog_wave"
 # url: "https://zaptun.github.io/smog_wave"
 logo: '/public/logo.png'
@@ -47,3 +47,8 @@ category_page: '/categories/'
 source: 
 destination: ../dist
 encoding: utf-8
+# exclude: ["src/assets/js/segment.min.js", "src/assets/js/ease.min.js", "src/assets/js/zap.js", "src/assets/js/base.js", "src/assets/js/menu.js","src/assets/css/base.css", "src/assets/css/highlight.css"]
+sass: 
+  style: compressed
+  sass_dir: assets/css/
+  sourcemap: never
