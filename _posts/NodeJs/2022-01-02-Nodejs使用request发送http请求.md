@@ -9,7 +9,6 @@ tags:
 
 
 
-# Nodejs使用request发送http请求
 
 在nodejs的开发中，有时需要后台去调用其他服务器的接口，这个时候，就需要发送HTTP请求了。有一个简单的工具可以用，Simplified HTTP request client，可以比较方便的模拟请求。
 
