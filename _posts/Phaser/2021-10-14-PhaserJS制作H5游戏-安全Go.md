@@ -19,6 +19,12 @@ const config: Phaser.Types.Core.GameConfig = {
 };
 ```
 
+### 游戏启动后动态加载资源
+
+```javascript
+
+```
+
 ### 屏幕自适应全屏剪裁显示和居中
 ```javascript
 const config: Phaser.Types.Core.GameConfig = {
@@ -562,7 +568,7 @@ sence.tweens.create({
 
 
 
-## 通过配置批量创建初始化元素
+### 通过配置批量创建初始化元素
 
 不同类型的元素初始化配置
 
@@ -624,3 +630,8 @@ sence.tweens.create({
 
 ```
 
+### 遮罩绘制头像
+
+```javascript
+
+```
