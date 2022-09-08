@@ -22,7 +22,50 @@ const config: Phaser.Types.Core.GameConfig = {
 ### 游戏启动后动态加载资源
 
 ```javascript
+/* 加载外部头像 */
+// this 是一个 new container
+this.shape = this.scene.make.graphics({});
 
+const subLoadCompleted = () => {
+  const avatar = this.scene.add.image(0, 0, "avatar");
+  /* 设置图片显示大小 */
+  avatar.setDisplaySize(100, 100);
+
+  /* 遮罩 */
+  this.shape.fillStyle(0xffffff);
+  this.shape.beginPath();
+  this.shape.moveTo(0, 0);
+  this.shape.arc(0, 0, 50, 0, Math.PI * 2);
+  this.shape.fillPath();
+  /* 如果container移动要跟着改变shape x y */
+  this.shape.x = x;
+  this.shape.y = y;
+  const mask = this.shape.createGeometryMask();
+  avatar.setMask(mask);
+  this.add(avatar);
+
+  /* 外部头像框 */
+  const headframe = this.female ? "headsframe_red" : "headsframe_blue";
+  const hf = scene.add.image(0, 0, "sprites", headframe);
+  this.add(hf);
+};
+scene.load.once("complete", subLoadCompleted, this);
+scene.load.image("avatar", this.avatar);
+scene.load.start();
+```
+
+### 图片遮罩
+```javascript
+this.shape.fillStyle(0xffffff);
+this.shape.beginPath();
+this.shape.moveTo(0, 0);
+this.shape.arc(0, 0, 50, 0, Math.PI * 2);
+this.shape.fillPath();
+/* 如果container移动要跟着改变shape x y */
+this.shape.x = x;
+this.shape.y = y;
+const mask = this.shape.createGeometryMask();
+avatar.setMask(mask);
 ```
 
 ### 屏幕自适应全屏剪裁显示和居中
@@ -281,6 +324,31 @@ this.anims.create({
 const spriteClick = this.add.sprite(100, 200, "ef-click").play("ruguideClickn");
 ```
 
+### 用合集精灵图片生成逐帧动画
+用免费的软件`ShoeBox`, [ShoeBox官网](https://renderhjs.net/shoebox/)，选Sprites ，生成Sprite Sheet文件，然后再loading-scene加载；
+
+利用 `generateFrameNames`
+
+```javascript
+//1. 加载图片资源
+this.scene.load.atlas('sprites', 'sprites.png', 'sprites.json');
+
+//2. 创建全局动画
+this.scene.anims.create({
+    key: 'germ1',
+    frames: this.anims.generateFrameNames('sprites', { prefix: 'red', start: 1, end: 3, zeroPad: 3 }),
+    frameRate: 8,
+    repeat: -1
+});
+
+//3. 场景加载sprite
+const anim = this.scene.add.sprite(100, 100, "sprites");
+
+//4. 播放动画
+anim.play("sprites");
+```
+
+
 ### PNG连续逐帧动画
 
 [Animation From Png Sequence](http://127.0.0.1:8080/edit.html?src=src/animation/animation from png sequence.js)
@@ -301,6 +369,28 @@ this.anims.create({
 });
 
 this.add.sprite(400, 300, 'cat1').play('snooze');
+```
+
+### 画圆
+```javascript
+//1. 实心圆  x坐标 y坐标 半径 
+const circleBg = new Phaser.Geom.Circle(200, 200, 100);
+const graphics = this.scene.add.graphics({ fillStyle: { color: 0xffffff } });
+graphics.fillCircleShape(circleBg);
+
+//2. 空心圆
+const circleBg = new Phaser.Geom.Circle(200, 200, 100);
+const graphics = this.scene.add.graphics({ lineStyle: { width: 3, color: 0x00ff00 } });
+graphics.strokeCircleShape(circleBg);
+
+//3. 带边线的圆
+const circle = new Phaser.Geom.Circle(200, 200, 100);
+const graphics = this.scene.add.graphics({ 
+  lineStyle: { width: 3, color: 0x00ff00 },
+  fillStyle: { color: 0xff0000 },
+});
+graphics.fillCircleShape(circle);
+graphics.strokeCircleShape(circle);
 ```
 
 ### 画圆角矩形 + 边框 + 文字
@@ -356,12 +446,69 @@ const MainScene = this.scene.get("MainScene");
 MainScene["zoomMap"]("in");
 ```
 
+### 设置图片层级
+
+setDepth方法, 相当于z-index, 数字越大层级越高
+
+```javascript
+//场景置顶
+this.load.image('ayu', 'assets/pics/ayu2.png');
+const image3 = this.add.image(100, 300, 'ayu');
+image3.setDepth(1);
+```
+
 ### 调整场景的层级
 ```javascript
 //场景置顶
 this.scene.bringToTop();
 //场景置底
 this.scene.sendToBack();
+```
+
+### 多图片拼接地图
+```javascript
+//绘制地图
+setMap(): void {
+  //地图容器
+  this.mapContainer = this.add.container(0, 0); //4900, 5625
+  this.mapContainer.name = "mapContainer";
+
+  //line1
+  for (let i = 1; i < 6; i++) {
+    const map = this.add.image(980 * (i - 1), 0, "bg_map_" + i).setOrigin(0);
+    this.mapContainer.add(map);
+  }
+  //line2
+  for (let i = 6; i < 11; i++) {
+    const map = this.add.image(980 * (i - 6), 1125, "bg_map_" + i).setOrigin(0);
+    this.mapContainer.add(map);
+  }
+  //line3
+  for (let i = 11; i < 16; i++) {
+    const map = this.add.image(980 * (i - 11), 1125 * 2, "bg_map_" + i).setOrigin(0);
+    this.mapContainer.add(map);
+  }
+  //line4
+  for (let i = 16; i < 21; i++) {
+    const map = this.add.image(980 * (i - 16), 1125 * 3, "bg_map_" + i).setOrigin(0);
+    this.mapContainer.add(map);
+  }
+  //line5
+  for (let i = 21; i < 26; i++) {
+    const map = this.add.image(980 * (i - 21), 1125 * 4, "bg_map_" + i).setOrigin(0);
+    this.mapContainer.add(map);
+  }
+}
+
+//设置主摄像机
+setMainCamera(): void {
+  this.cameras.main.setBounds(0, 0, 4900, 5625);
+  // this.cameras.main.setZoom(1);
+  // this.cameras.main.centerOn(7732 * 0.6, 5019 / 2);
+  /* 跟随主角 */
+  this.cameras.main.startFollow(p);
+}
+
 ```
 
 ### 文字自动换行

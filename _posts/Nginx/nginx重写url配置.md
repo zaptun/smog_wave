@@ -13,7 +13,7 @@ tags:
 URL重写有利于网站首选域的确定，对于同一资源页面多条路径的301重定向有助于URL权重的集中
 ```
 
-## 1.Nginx URL重写（rewrite）介绍
+## 1. Nginx URL重写（rewrite）介绍
 
 
 
@@ -23,7 +23,7 @@ Nginx的rewrite功能需要PCRE软件的支持，即通过perl兼容正则表达
 默认参数编译nginx就会支持rewrite的模块，但是也必须要PCRE的支持
 ```
 
-## 2.rewrite语法格式及参数语法:
+## 2. rewrite语法格式及参数语法:
 
 
 
@@ -50,7 +50,7 @@ redirect  #返回302临时重定向，浏览器地址会显示跳转后的URL地
 permanent  #返回301永久重定向，浏览器地址栏会显示跳转后的URL地址
 ```
 
-### 2.1nginx rewrite变量，常用于匹配HTTP请求头信息、浏览器主机名、URL
+### 2.1. nginx rewrite变量，常用于匹配HTTP请求头信息、浏览器主机名、URL
 
 
 
@@ -75,9 +75,9 @@ TIME_MON             月；
 TIME_DAY              日；
 ```
 
-## 3.例子
+## 3. 例子
 
-### 3.0较难场景
+### 3.0. 较难场景
 
 
 
@@ -88,7 +88,7 @@ TIME_DAY              日；
 rewrite '^(\S+) +(\S+)(.*)' $1_$2$3 last;
 ```
 
-### 3.1demo01
+### 3.1. demo01
 
 
 
@@ -101,7 +101,7 @@ replacement部分是http://www.zy.com/$1。其中$1是取自regex部分()里的�
 flag部分 permanent表示永久301重定向标记，即跳转到新的http://www.zy.com/$1 地址上。
 ```
 
-### 3.2demo02
+### 3.2. demo02
 
 ```
 vi编辑虚拟主机配置文件
@@ -153,7 +153,7 @@ server {
 }
 ```
 
-### 3.3将[zy.com](https://links.jianshu.com/go?to=http%3A%2F%2Fzy.com)跳转至[www.zy.com](https://links.jianshu.com/go?to=http%3A%2F%2Fwww.zy.com)
+### 3.3. 将[zy.com](https://links.jianshu.com/go?to=http%3A%2F%2Fzy.com)跳转至[www.zy.com](https://links.jianshu.com/go?to=http%3A%2F%2Fwww.zy.com)
 
 
 
@@ -164,7 +164,7 @@ if ($host = zy.com' ) {
 }
 ```
 
-### 3.4访问[www.zy.com](https://links.jianshu.com/go?to=http%3A%2F%2Fwww.zy.com)跳转[www.test.com/index01.html](https://links.jianshu.com/go?to=http%3A%2F%2Fwww.test.com%2Findex01.html)
+### 3.4. 访问[www.zy.com](https://links.jianshu.com/go?to=http%3A%2F%2Fwww.zy.com)跳转[www.test.com/index01.html](https://links.jianshu.com/go?to=http%3A%2F%2Fwww.test.com%2Findex01.html)
 
 
 
@@ -172,7 +172,7 @@ if ($host = zy.com' ) {
 rewrite   ^/$  http://www.test.com/index01.html  permanent；
 ```
 
-### 3.5访问/zy/test01/跳转至/newindex.html，浏览器地址不变
+### 3.5. 访问/zy/test01/跳转至/newindex.html，浏览器地址不变
 
 
 
@@ -180,7 +180,7 @@ rewrite   ^/$  http://www.test.com/index01.html  permanent；
 rewrite   ^/zy/test01/$     /newindex.html     last；
 ```
 
-### 3.6多域名跳转到[www.zy.com](https://links.jianshu.com/go?to=http%3A%2F%2Fwww.zy.com)
+### 3.6. 多域名跳转到[www.zy.com](https://links.jianshu.com/go?to=http%3A%2F%2Fwww.zy.com)
 
 
 
@@ -190,7 +190,7 @@ if ($host != ‘www.jfedu.net’ ) {
 }
 ```
 
-### 3.7访问文件和目录不存在跳转至index.php
+### 3.7. 访问文件和目录不存在跳转至index.php
 
 
 
@@ -200,7 +200,7 @@ if ( ! -e $request_filename ) {
 }
 ```
 
-### 3.8目录对换 /xxxx/123456 ====> /xxxx?id=123456
+### 3.8. 目录对换 /xxxx/123456 ====> /xxxx?id=123456
 
 
 
@@ -208,7 +208,7 @@ if ( ! -e $request_filename ) {
 rewrite    ^/(.+)/(\d+)      /$1?id=$2       last；
 ```
 
-### 3.9判断浏览器User Agent跳转
+### 3.9. 判断浏览器User Agent跳转
 
 
 
@@ -218,7 +218,7 @@ if( $http_user_agent  ~ MSIE) {
 }
 ```
 
-### 3.10 禁止访问以.sh,.flv,.mp3为文件后缀名的文件
+### 3.10. 禁止访问以.sh,.flv,.mp3为文件后缀名的文件
 
 
 
@@ -228,9 +228,7 @@ location ~ .*\.(sh|flv|mp3)${
 } 
 ```
 
-### 3.11 将移动用户访问跳转至移动端
-
-
+### 3.11. 将移动用户访问跳转至移动端
 
 ```ruby
 if ( $http_user_agent ~* "(Android)|(iPhone)|(Mobile)|(WAP)|(UCWEB)" ){
@@ -238,23 +236,88 @@ if ( $http_user_agent ~* "(Android)|(iPhone)|(Mobile)|(WAP)|(UCWEB)" ){
 }
 ```
 
-### 3.12 访问/10690/zy/123跳转至/index.php?tid/10690/items=123，[0-9]表示任意一个数字，+表示多个，(.+)表示任何多个字符__
-
-
+### 3.12. 访问/10690/zy/123跳转至/index.php?tid/10690/items=123，[0-9]表示任意一个数字，+表示多个，(.+)表示任何多个字符__
 
 ```ruby
 rewrite   ^/([0-9]+)/zy/(.+)$     /index.php?tid/$1/items=$2     last;
 ```
 
-### 3.13匹配URL访问字符串跳转
-
-
+### 3.13. 匹配URL访问字符串跳转
 
 ```bash
 if ($args ~* tid=13){
     return 404；
 }
 ```
+
+### 3.14. alias和root的区别
+
+- **root** 指令只是将搜索的根设置为 root 设定的目录，即不会截断 uri，而是使用原始 uri 跳转该目录下查找文件
+  
+- **alias** 指令则会截断匹配的 uri，然后使用 alias 设定的路径加上剩余的 uri 作为子路径进行查找，支持正则表达式
+
+如果一个项目是vue，
+
+**root匹配**
+
+1. 直接根域名指到vue项目目录, 如：http://www.demo.com
+```nginx
+location @router {
+    rewrite ^.*$ /index.html last;
+}
+
+location / {
+    root /data/nginx/html/vueProjectA/;
+    try_files $uri $uri/ @router;
+    index index.html index.htm;
+}
+```
+
+2. 域名二级目录指到vue项目目录, 如：http://www.demo.com/vuedemo/
+
+>注：服务器 /data/nginx/html/vueProjectA/ 里面要有一个 vuedemo 文件夹
+
+```nginx
+location /vuedemo {
+    root   /data/nginx/html/vueProjectA/;
+    index  index.html index.htm;
+    if (!-e $request_filename) {
+        rewrite ^/(.*) /vuedemo/index.html last;
+        break;
+    }
+}
+```
+
+或者用 try_files
+
+```nginx
+location @router {
+    rewrite ^.*$ /vuedemo/index.html last;
+}
+location /vuedemo {
+    root  /data/nginx/html/vueProjectA/;
+    index  index.html index.htm;
+    try_files $uri $uri/ @router;
+}
+```
+
+**alias匹配**
+
+一般用在域名二级目录和服务器文件夹名称不一样的情况，如：http://www.demo.com/vuedemo/ 只想指到服务器 /data/nginx/html/vueProjectA/，就用alias截断匹配的路径。
+
+>Nginx的 alias 和try_files 两个之间存在互斥，不能同时配置。
+
+```nginx
+location /vuedemo {
+    alias  /data/nginx/html/vueProjectA/;
+    index  index.html index.htm;
+    if (!-e $request_filename) {
+        rewrite ^/(.*) /vuedemo/index.html last;
+        break;
+    }
+}
+```
+
 
 ## 4.rewrite 企业应用场景
 
@@ -269,3 +332,36 @@ if ($args ~* tid=13){
 
 >> 根据特殊变量、目录、客户端的信息进行URL调整等
 ```
+
+## 匹配方式
+
+### 精准匹配
+
+- `location = /uri` 表示精准匹配，只要完全匹配上才能生效。记住只会匹配一个。
+
+### 字符串匹配
+
+最长匹配原则
+
+- `location /uri` 不带任何修饰符，表示前缀匹配，忽略大小写。但是优先级在正则匹配之后
+
+- `location ^~ /uri` 开头对URL路径进行前缀匹配，并且在正则之前。一旦匹配到最长匹配，则不再查找其他匹配项
+
+### 正则匹配
+
+- `location ~ pattern` 开头表示区分大小写的正则匹配
+- `location ~* pattern` 开头表示不区分大小写的正则匹配，如果有多个location匹配，则选择匹配最长的那个
+
+### 通用匹配
+
+- `location /` 通用匹配，任何未匹配到其他location的请求都会匹配到
+
+### 优先级
+
+=(精确匹配) > ^~(普通字符匹配) > ~*(正则匹配) > 完全路径 > /
+
+----
+
+参考
+
+[Nginx的alias/root/try_files实战](https://zhuanlan.zhihu.com/p/481297435)
